@@ -1,0 +1,182 @@
+.menu {
+    position: fixed;
+    --width: calc(100% - 1920px);
+    left: calc(var(--width) / 2);
+    top: toRem(80);
+    @include flex-setting(column, flex-start, center);
+    width: 39%;
+    height: auto;
+    min-height: toRem(746);
+    max-width: toRem(748);
+    //max-width: 38.54166666666667%;
+    background-color: #fff;
+    padding: toRem(50) toRem(35) 0 toRem(40);
+    display: none;
+    border-top: 1px solid #E8E8E8;
+    z-index: 5;
+
+    &__title {
+        opacity: 1;
+        transition: 0.2s $cubic 0.2s;
+        @include font-setting($primary-font, toRem(18), toRem(22), 400, #000);
+        text-transform: uppercase;
+        padding-bottom: toRem(15);
+        margin-top: 0;
+        margin-bottom: toRem(40);
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: '';
+
+            width: toRem(90);
+            height: toRem(1);
+            background-color: #000;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__wrap {
+        transition: 0.2s $cubic 0.2s;
+        width: 100%;
+        @include flex-setting(column, flex-start, flex-start);
+        gap: toRem(20);
+
+        &-block {
+            width: 100%;
+            @include flex-setting(column, flex-start, flex-start);
+
+            @include gapFallbackV(20px);
+        }
+    }
+
+    &__subtitle {
+        @include font-setting($primary-font, toRem(14), toRem(17), 300, #000);
+        margin-bottom: toRem(12);
+    }
+
+    &__list {
+        width: 100%;
+        @include flex-setting(row, flex-start, center);
+        flex-wrap: wrap;
+        gap: toRem(8) toRem(8);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        width: auto;
+        @include flex-setting(column, center, center);
+        @include gapFallbackVH(8px);
+    }
+
+    &__link {
+        width: auto;
+        @include flex-setting(column, center, center);
+        @include font-setting($primary-font, toRem(14), toRem(18), 400, #767676);
+        padding: toRem(2) toRem(9);
+        border: toRem(1) solid #767676;
+
+        cursor: pointer;
+        transition: 0.35s $cubic;
+        text-decoration: none;
+
+        &:active,
+        &:focus,
+        &:hover,
+        &.active {
+            color: #D9318B;
+            border-color: #D9318B;
+            transition: 0.35s $cubic;
+        }
+    }
+}
+
+@media screen and (max-width: 1919px) {
+    .menu {
+        top: toRem(80);
+        width: 37.75%;
+        left: 0;
+        //max-width: 37.75%;
+        height: auto;
+        padding-right: toRem(80);
+        padding-bottom: toRem(80);
+    }
+}
+
+@media screen and (max-width: 1599px) {
+    .menu {
+        top: toRem(80);
+        width: 39%;
+        //max-width: 39%;
+    }
+}
+
+@media screen and (max-width: 1449px) {
+    .menu {
+        width: 38.125%;
+        //max-width: 38.125%;
+        top: toRem(80);
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .menu {
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: 100%;
+        height: auto;
+        padding: 0;
+        width: 100%;
+        z-index: 999;
+        border-top: none;
+        min-height: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .menu {
+        min-height: 0;
+        padding-bottom: toRem(60);
+
+        &__title {
+            align-self: flex-start;
+            font-size: toRem(16);
+            line-height: toRem(18);
+            margin-bottom: toRem(26);
+        }
+
+        &__wrap {
+            gap: toRem(22);
+            padding-bottom: toRem(40);
+
+            &-block {
+                @include gapFallbackV(22px);
+            }
+        }
+
+        &__subtitle {
+            font-size: toRem(12);
+            line-height: toRem(14);
+            margin-bottom: toRem(10);
+        }
+
+        &__list {
+            gap: toRem(5) toRem(5);
+        }
+
+        &__item {
+            @include gapFallbackVH(5px);
+        }
+
+        &__link {
+            padding: toRem(2) toRem(9);
+            font-size: toRem(13);
+            line-height: toRem(16);
+        }
+    }
+}

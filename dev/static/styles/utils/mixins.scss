@@ -1,0 +1,157 @@
+@mixin box($width,$height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin gapFallbackTwo($gap) {
+    @supports not (aspect-ratio: 1 / 1) {
+        margin-right: $gap;
+        margin-bottom: $gap;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+$units: 1px !default;
+@mixin screen($res-first, $res-last: $res-first) {
+  @if $res-first == $res-last {
+    @media screen and (max-width: if(unitless($res-first), ($res-first - 1) *$units, $res-first)) {
+      @content;
+    }
+  }
+  @else if $res-first < $res-last {
+    @media screen and (min-width: if(unitless($res-first), $res-first*$units, $res-first)) and (max-width: if(unitless($res-last), $res-last*$units, $res-last)) {
+      @content;
+    }
+  }
+}
+@mixin min-screen($res) {
+  @media screen and (min-width: if(unitless($res), $res*$units, $res)) {
+    @content;
+  }
+}
+
+@mixin pseudo($pos: absolute, $content: '') {
+  @include flex-setting(column, center, center);
+
+  content: $content;
+  position: $pos;
+}
+
+@mixin flex-setting($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font-setting($family, $size, $line-height, $font-width, $color) {
+  font-family: $family;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $font-width;
+  color: $color;
+}
+
+@mixin ul-nostyle {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin checkbox-default {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+
+  position: relative;
+
+  padding-left: toRem(34);
+
+  @include min-screen(1200px) {
+      padding-left: toRem(36);
+  }
+}
+
+@mixin custom-checkbox {
+  position: absolute;
+  content: "";
+  display: block;
+
+  width: toRem(22);
+  height: toRem(22);
+  background-color: $white;
+  border: toRem(2) solid $dark;
+  border-radius: toRem(5);
+  top: 0;
+  left: 0;
+
+  @include min-screen(1200px) {
+      border-color: #DADDE7;
+      width: toRem(24);
+      height: toRem(24);
+  }
+}
+
+@mixin checkbox-checked {
+  position: absolute;
+  content: "";
+  display: block;
+
+  width: toRem(22);
+  height: toRem(22);
+  background-color: $dark;
+  border: toRem(2) solid $dark;;
+  border-radius: toRem(5);
+  background-image: url("data:image/svg+xml,%3Csvg width='13' height='11' viewBox='0 0 13 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.7464 0.627939C11.0788 0.266157 11.6248 0.199467 12.0346 0.470599L12.1239 0.529727C12.6006 0.84517 12.7164 1.49532 12.3779 1.95591L6.03022 10.5922C5.84179 10.8486 5.54261 11 5.22445 11H4.55129C4.238 11 3.94282 10.8532 3.7538 10.6033L0.560302 6.38223C0.244377 5.96464 0.304077 5.37406 0.697181 5.02815L1.01565 4.74792C1.3935 4.41543 1.95959 4.41558 2.33726 4.74828L4.15741 6.35165C4.5657 6.71131 5.18661 6.67853 5.55476 6.27788L10.7464 0.627939Z' fill='white'/%3E%3C/svg%3E");
+  background-size: toRem(13) toRem(11);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  top: 0;
+  left: 0;
+
+  @include min-screen(1200px) {
+      width: toRem(24);
+      height: toRem(24);
+  }
+}
+
+@mixin gapFallback($gap) {
+    @supports not (aspect-ratio: 1 / 1) {
+        margin-right: $gap;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+@mixin gapFallbackVH($gap) {
+    @supports not (aspect-ratio: 1 / 1) {
+        margin-right: $gap;
+        margin-bottom: $gap;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+@mixin gapFallbackV($gap) {
+    @supports not (aspect-ratio: 1 / 1) {
+        margin-bottom: $gap;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

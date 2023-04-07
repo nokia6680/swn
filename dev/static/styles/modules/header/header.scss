@@ -1,0 +1,172 @@
+.header {
+    width: 100%;
+    @include flex-setting(row, space-between, center);
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: $white;
+    position: absolute;
+
+    top: 0;
+
+    z-index: 10;
+
+    &.is-fixed {
+        position: fixed;
+        transform: translate3d(-50%, -100%, 0);
+    }
+
+    &.scroll-up {
+        transform: translate3d(-50%, 0, 0);
+        transition: 0.2s $cubic;
+    }
+
+    &.scrolling {
+        .nav__menu {
+            transform: scaleY(0);
+            transition: 0.2s $cubic 0.2s;
+        }
+
+        .menu__title,
+        .menu__wrap {
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s $cubic;
+        }
+    }
+
+    &_wrap {
+        position: relative;
+        margin: 0 auto;
+        @include flex-setting(row, space-between, center);
+        max-width: toRem(1920);
+        padding: 0 2.25rem 0 0;
+        width: 100%;
+    }
+
+    &__toggle {
+        display: none;
+    }
+
+    &__logo {
+        position: absolute;
+        left: toRem(36);
+        top: toRem(12);
+        @include flex-setting(column, center, center);
+        width: toRem(268);
+        max-width: toRem(268);
+        height: auto;
+
+        &-link {
+            display: block;
+            width: inherit;
+            height: inherit;
+
+        }
+
+        &-img {
+            width: 100%;
+            max-width: toRem(268);
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    &__nav {
+        margin-right: toRem(40);
+    }
+
+    &__loipe {
+        @include flex-setting(column, center, center);
+        width: toRem(32);
+        min-width: toRem(32);
+        height: toRem(32);
+        padding: 0;
+        background-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.7701 12.8846C23.7701 18.896 18.8968 23.7693 12.8851 23.7693C6.87334 23.7693 2 18.896 2 12.8846C2 6.87328 6.87334 2 12.8851 2C18.8968 2 23.7701 6.87328 23.7701 12.8846ZM21.2616 22.6753C19.0091 24.6042 16.0831 25.7693 12.8851 25.7693C5.76884 25.7693 0 20.0006 0 12.8846C0 5.76864 5.76884 0 12.8851 0C20.0013 0 25.7701 5.76864 25.7701 12.8846C25.7701 16.0827 24.6049 19.0087 22.6759 21.2612L31.999 30.584L30.5848 31.9983L21.2616 22.6753Z' fill='%23FF0181'/%3E%3C/svg%3E");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1919px) {
+    .header {
+        &__logo {
+            top: toRem(14);
+            width: 15.625vw;
+        }
+    }
+}
+
+@media screen and (max-width: 1599px) {
+    .header {
+        &__logo {
+            top: toRem(22);
+            width: 11.86206896551724vw;
+        }
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .header {
+        flex-direction: row;
+        justify-content: flex-start;
+        position: absolute;
+
+        &_wrap {
+            justify-content: flex-start;
+            padding-left: 2.25rem;
+            padding-top: 1.7rem;
+            padding-bottom: 1.7rem;
+        }
+
+        &__logo {
+            position: relative;
+            top: auto;
+            left: auto;
+            width: toRem(192);
+            height: toRem(24);
+        }
+
+        &__toggle {
+            display: block;
+            min-width: toRem(20);
+            width: toRem(20);
+            height: toRem(18);
+            padding: 0;
+            margin-right: toRem(12);
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='18' viewBox='0 0 20 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20 1.99997H0V0H20V1.99997ZM20 9.99988H0V7.99991H20V9.99988ZM0 18H20V16H0V18Z' fill='black'/%3E%3C/svg%3E");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: transparent;
+            border: none;
+            transition: 0.3s $cubic;
+            cursor: pointer;
+
+            &.opened {
+                background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L17 17M17 1L1 17' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+                transition: 0.3s $cubic;
+            }
+        }
+
+        &__loipe {
+            margin-left: auto;
+            margin-right: 0;
+            z-index: 99;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        &_wrap {
+            padding-top: toRem(18);
+            padding-bottom: toRem(19);
+            padding-left: toRem(18);
+        }
+    }
+}

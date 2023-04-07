@@ -1,0 +1,17 @@
+@mixin font-face($font-name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src:
+      url(#{$path}.woff) format("woff"),
+      url(#{$path}.woff2) format("woff2");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include font-face('Pragmatica', '../fonts/Pragmatica/Pragmatica-Light', 300, 'normal');
+@include font-face('Pragmatica', '../fonts/Pragmatica/Pragmatica-Book', 350, 'normal');
+@include font-face('Pragmatica Book', '../fonts/Pragmatica/Pragmatica-Book', 350, 'normal');
+@include font-face('Pragmatica', '../fonts/Pragmatica/Pragmatica', 400, 'normal');
+@include font-face('Pragmatica', '../fonts/Pragmatica/Pragmatica-Medium', 500, 'normal');
+@include font-face('Pragmatica', '../fonts/Pragmatica/Pragmatica-Bold', 700, 'normal');

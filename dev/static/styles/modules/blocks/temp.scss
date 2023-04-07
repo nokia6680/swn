@@ -1,0 +1,193 @@
+.temp {
+    position: relative;
+    @include flex-setting(column, flex-start, flex-start);
+    width: 100%;
+    height: calc(100vw * (27.3 / 16));
+    padding: toRem(50) 0 toRem(20) 0;
+    
+    background-image: image-set(url("/static/images/content/temp-mb.webp") 1x, url("/static/images/content/temp-mb-2x.webp") 2x, url("/static/images/content/temp-mb-3x.webp") 3x);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+
+    &::after {
+        position: absolute;
+        content: '';
+
+        width: 100%;
+        height: 100%;
+        background-color: rgba(42, 42, 42, 0.3);
+        pointer-events: none;
+        top: 0;
+        left: 0;
+    }
+
+    &__title {
+        display: inline-flex;
+        width: 100%;
+        max-width: calc(100% - 40px);
+        @include font-setting($primary-font, toRem(29), toRem(41),400, #E8E8E8);
+        text-align: left;
+        margin-left: toRem(20);
+        margin-right: toRem(20);
+        z-index: 2;
+    }
+
+    &__description {
+        display: inline-flex;
+        width: 100%;
+        max-width: calc(100% - 40px);
+        @include font-setting($primary-font, toRem(14), toRem(20), 400, #E8E8E8);
+        text-align: left;
+        margin-left: toRem(20);
+        margin-bottom: toRem(22);
+        z-index: 2;
+    }
+
+    &__nav {
+        padding: 0 toRem(20);
+        scroll-snap-type: x mandatory;
+        width: 100%;
+
+        @include flex-setting(row, flex-start, center);
+        gap: toRem(20);
+        margin-bottom: toRem(0);
+        z-index: 2;
+        overflow-x: auto;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &-item {
+            display: inline-flex;
+            scroll-snap-align: center;
+            height: auto;
+            white-space: nowrap;
+        }
+
+        &-link {
+            @include font-setting($primary-font, toRem(14), toRem(20), 400, #E8E8E8);
+            text-transform: lowercase;
+            text-decoration: underline;
+            text-underline-offset: toRem(3);
+            text-decoration-color: #FF0181;
+            transition: 0.2s $cubic;
+            &:active {
+                color: #FF0181;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+
+    &__return {
+        align-self: center;
+        width: auto;
+        padding: toRem(17.5) toRem(32);
+        @include flex-setting(column, center, center);
+        @include font-setting($primary-font, toRem(12), toRem(15), 700, $white);
+        text-transform: uppercase;
+        text-decoration: none;
+        margin-top: auto;
+        margin-bottom: 0;
+        background-color: #FF0181;
+        border: none;
+        transition: 0.2s $cubic;
+        z-index: 2;
+
+        &:active {
+            background-color: $white;
+            color: #2a2a2a;
+            transition: 0.2s $cubic;
+        }
+    }
+}
+
+@include min-screen(768px) {
+    .temp {
+        height: calc(100vw * (13 / 16));
+        padding: toRem(80) 0 toRem(20) 0;
+        
+        background-image: image-set(url("/static/images/content/temp-lg.webp") 1x, url("/static/images/content/temp-lg-2x.webp") 2x, url("/static/images/content/temp-lg-3x.webp") 3x);
+        background-size: cover;
+        background-position: top right -100px;
+    
+        &__title {
+            font-size: toRem(44);
+            line-height: toRem(62);
+            margin-bottom: toRem(40);
+        }
+    
+        &__description {
+            font-size: toRem(21);
+            line-height: toRem(29);
+            margin-bottom: toRem(30);
+        }
+    
+        &__nav {
+            gap: toRem(20);
+
+            &-link {
+                font-size: toRem(18);
+                line-height: toRem(22);
+            }
+        }
+    
+        &__return {
+            align-self: flex-start;
+            margin-left: toRem(20);
+        }
+    }
+}
+
+@include min-screen(1280px) {
+    .temp {
+        max-width: toRem(1160);
+        height: toRem(630);
+        padding: toRem(100) toRem(50) toRem(30) toRem(50);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: toRem(140);
+        margin-bottom: toRem(60);
+        background-position: top center;
+
+        &::after {
+            display: none;
+        }
+    
+        &__title {
+            max-width: toRem(780);
+            margin-left: 0;
+        }
+
+        &__description {
+            margin-left: 0;
+        }
+    
+        &__nav {
+            gap: toRem(25);
+            margin-left: 0;
+            padding-left: 0;
+
+            &-link {
+                &:hover {
+                    color: #FF0181;
+                    transition: 0.2s $cubic;
+                }
+            }
+        }
+    
+        &__return {
+            margin-left: 0;
+
+            &:hover {
+                background-color: $white;
+                color: #2a2a2a;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+}

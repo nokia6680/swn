@@ -1,0 +1,28 @@
+.nav__link {
+    @include font-setting($primary-font, toRem(20), 1.2, 500, #000);
+    @include fluidFontSize(1rem, 1.25rem, 100rem, 120rem, 1.25rem);
+}
+
+.nav__label {
+    span {
+        @include font-setting($primary-font, toRem(20), 1.2, 500, #000);
+        @include fluidFontSize(1rem, 1.25rem, 100rem, 120rem, 1.25rem);
+    }
+}
+
+.nav__inner-link {
+    @include font-setting($primary-font, toRem(19), 1.05263, 400, #000);
+    @include fluidFontSize(0.9375rem, 1.1875rem, 100rem, 120rem, 1.1875rem);
+}
+
+@media screen and (max-width: 1599px) {
+    .nav__link {
+        @include fluidFontSize(0.9375rem, 1rem, 90.625rem, 99.9375rem, 1rem);
+    }
+
+    .nav__label {
+        span {
+            @include fluidFontSize(0.9375rem, 1rem, 90.625rem, 99.9375rem, 1rem);
+        }
+    }
+}

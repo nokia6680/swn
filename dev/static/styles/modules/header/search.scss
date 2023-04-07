@@ -1,0 +1,281 @@
+.search {
+    position: absolute;
+    top: -100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 9;
+    @include flex-setting(column, flex-start, flex-start);
+    width: toRem(1024);
+    padding: toRem(24) toRem(36) toRem(40) toRem(36);
+    background-color: $white;
+    box-shadow: 0 0 300px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.2s $cubic;
+
+    &.active {
+        opacity: 1;
+        top: 0;
+        transition: 0.2s $cubic;
+        z-index: 999;
+
+        &.filled {
+            .search__result {
+                display: flex;
+            }
+
+            .search__links {
+                display: none;
+            }
+
+            .search__upper-input {
+                padding-left: toRem(30);
+            }
+
+            .search__upper-submit {
+                right: auto;
+                left: 0;
+            }
+
+            .search__upper-reset {
+                opacity: 1;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+
+    &__upper {
+        width: 100%;
+        @include flex-setting(row, flex-start, center);
+        position: relative;
+        margin-bottom: toRem(40);
+
+        &-input {
+            width: 100%;
+            @include font-setting($primary-font, toRem(17), 1, 400, $dark);
+            background-color: transparent;
+            border: none;
+            border-bottom: toRem(1) solid #C0C0C0;
+            margin: 0;
+            padding: 0;
+            padding-bottom: toRem(10);
+
+            border-radius: 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            &::-webkit-search-cancel-button {
+                display: none;
+            }
+        }
+
+        &-submit {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            min-width: toRem(20);
+            width: toRem(20);
+            height: toRem(20);
+            min-height: toRem(20);
+            background-color: transparent;
+            border: none;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.86719 9.86475L15.5042 15.5017' stroke='%23C4C4C4' stroke-width='1.40925'/%3E%3Cpath d='M11.3136 6.00889C11.3136 8.93833 8.93869 11.3132 6.00909 11.3132C3.07949 11.3132 0.704625 8.93833 0.704625 6.00889C0.704625 3.07945 3.07949 0.704625 6.00909 0.704625C8.93869 0.704625 11.3136 3.07945 11.3136 6.00889Z' stroke='%23C4C4C4' stroke-width='1.40925'/%3E%3C/svg%3E");
+            transition: 0.35s $cubic;
+        }
+
+        &-reset {
+            position: absolute;
+            min-width: toRem(14);
+            min-height: toRem(14);
+            padding: 0;
+            width: toRem(14);
+            height: toRem(14);
+            top: 0;
+            right: toRem(4);
+            background: transparent;
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.00049 15.0005L7.8641 8.00049L15.0005 15.0005' stroke='%23737373' stroke-linecap='round'/%3E%3Cpath d='M1.00049 1.00049L7.8641 8.00049L15.0005 1.00049' stroke='%23737373' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border: none;
+            opacity: 0;
+            transition: 0.2s $cubic;
+        }
+    }
+
+    &__links {
+        @include flex-setting(column, flex-start, flex-start);
+        width: 100%;
+
+        &-title {
+            @include font-setting($primary-font, toRem(17), 1, 400, #C0C0C0);
+            text-transform: uppercase;
+            margin-bottom: toRem(30);
+        }
+
+        &-list {
+            width: 100%;
+            @include flex-setting(column, flex-start, flex-start);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        &-item {
+            width: 100%;
+            position: relative;
+            padding-left: toRem(30);
+            margin-bottom: toRem(20);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                min-width: toRem(20);
+                width: toRem(20);
+                height: toRem(20);
+                background-color: transparent;
+                border: none;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.86719 9.86475L15.5042 15.5017' stroke='%23C4C4C4' stroke-width='1.40925'/%3E%3Cpath d='M11.3136 6.00889C11.3136 8.93833 8.93869 11.3132 6.00909 11.3132C3.07949 11.3132 0.704625 8.93833 0.704625 6.00889C0.704625 3.07945 3.07949 0.704625 6.00909 0.704625C8.93869 0.704625 11.3136 3.07945 11.3136 6.00889Z' stroke='%23C4C4C4' stroke-width='1.40925'/%3E%3C/svg%3E");
+            }
+        }
+
+        &-text {
+            width: 100%;
+            display: block;
+            cursor: pointer;
+            padding-top: toRem(3);
+            padding-bottom: toRem(3);
+            @include font-setting($primary-font, toRem(15), 1, 400, $dark);
+            text-transform: lowercase;
+            text-decoration: none;
+
+            &:hover {
+                color: #FF0181;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+
+    &__result {
+        width: 100%;
+        @include flex-setting(column, flex-start, flex-start);
+        display: none;
+
+        &-list {
+            width: 100%;
+            @include flex-setting(column, flex-start, flex-start);
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            margin-bottom: toRem(40);
+        }
+
+        &-item {
+            width: 100%;
+            @include flex-setting(row, flex-start, center);
+            margin-bottom: toRem(10);
+            padding-bottom: toRem(10);
+            border-bottom: toRem(1) solid #E8E8E8;
+        }
+
+        &-link {
+            width: 100%;
+            @include flex-setting(row, flex-start, center);
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                .search__result-text {
+                    color: #FF0181;
+                    transition: 0.2s $cubic;
+                }
+            }
+        }
+
+        &-frame {
+            @include flex-setting(column, center, center);
+            width: toRem(60);
+            min-width: toRem(60);
+            max-width: toRem(60);
+            min-height: toRem(60);
+            max-height: toRem(60);
+            height: toRem(60);
+            margin-right: toRem(16);
+        }
+
+        &-img {
+            width: 100%;
+            height: 100%;
+            min-width: toRem(60);
+            max-width: toRem(60);
+            min-height: toRem(60);
+            max-height: toRem(60);
+            object-fit: contain;
+        }
+
+        &-text {
+            @include font-setting($primary-font, toRem(15), 1, 400, $dark);
+            text-transform: lowercase;
+            text-align: left;
+            transition: 0.2s $cubic;
+        }
+
+        &-more {
+            align-self: center;
+            width: auto;
+            @include flex-setting(column, center, center);
+            @include font-setting($primary-font, toRem(14), toRem(17), 500, $dark);
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: toRem(20) toRem(38);
+            border: toRem(1) solid #E4E4E5;
+            cursor: pointer;
+            transition: 0.2s $cubic;
+
+            &:hover {
+                border-color: #FF0181;
+                color: #FF0181;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .search {
+        width: 100%;
+        padding-left: toRem(30);
+        padding-right: toRem(30);
+
+        &.active {
+            z-index: 999;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .search {
+        padding-left: toRem(20);
+        padding-right: toRem(20);
+        padding-top: toRem(30);
+
+        &__upper {
+            margin-bottom: toRem(30);
+        }
+    }
+}

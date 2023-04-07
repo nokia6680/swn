@@ -1,0 +1,368 @@
+.nav {
+    position: relative;
+    width: calc(100% - 72px);
+    @include flex-setting(row, flex-end, center);
+
+    &__menu {
+        position: absolute;
+        display: none;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__list {
+        width: 100vw;
+        @include flex-setting(row, flex-end, flex-start);
+        position: relative;
+        gap: toRem(27);
+        list-style: none;
+    }
+
+    &__item {
+        width: auto;
+        @include flex-setting(column, center, center);
+        height: auto;
+        outline: none;
+        cursor: pointer;
+        padding-top: toRem(28);
+        padding-bottom: toRem(28);
+
+        @include gapFallback(1.5625vw);
+
+        &[open] {
+            .nav__label {
+                span {
+                    color: #D9318B;
+                }
+            }
+            .nav__arr {
+                transform: rotate(180deg);
+                transition: 0.3s $cubic;
+            }
+        }
+
+        &--inner {
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            &:hover {
+                .nav__inner {
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__summary {
+        display: flex;
+        outline: none;
+        cursor: pointer;
+
+        &::-webkit-details-marker,
+        &::marker {
+            display: none;
+        }
+    }
+
+    &__label {
+        width: auto;
+        height: auto;
+        @include flex-setting(row, flex-start, center);
+
+        span {
+            display: inline-flex;
+        }
+    }
+
+    &__arr {
+        margin-left: toRem(5);
+        justify-content: center;
+        align-items: center;
+        width: toRem(12);
+        height: toRem(8);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 1L6 6L1 1' stroke='%23C4C4C4'/%3E%3C/svg%3E%0A");
+        transition: 0.3s $cubic;
+    }
+
+    &__inner {
+        position: absolute;
+        width: 100vw;
+        left: 0;
+        top: toRem(80);
+        display: grid;
+        grid-template-columns: 35% 65%;
+        justify-content: space-between;
+        align-items: stretch;
+        background-color: $white;
+        box-shadow: 15px 10px 29px rgba(0, 0, 0, 0.15);
+        z-index: 8;
+        display: none;
+
+        &::before {
+            position: absolute;
+            content: '';
+
+            width: 100%;
+            height: 20px;
+            background-color: transparent;
+            top: toRem(-20);
+            left: 0;
+        }
+    }
+
+    &__inner-list {
+        width: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: toRem(33);
+        justify-content: start;
+        align-items: start;
+        padding: toRem(34) 16.61721068249258%;
+        border-right: 1px solid #C4C4C4;
+    }
+
+    &__inner-item {
+        @include flex-setting(column, center, flex-start);
+        width: auto;
+
+        &.long {
+            grid-column: 1 / 4;
+        }
+    }
+
+    &__inner-link {
+        text-decoration: none;
+        transition: 0.3s $cubic;
+
+        &:focus,
+        &:active,
+        &:hover {
+            color: #D9318B;
+            transition: 0.3s $cubic;
+        }
+    }
+}
+
+@media screen and (max-width: 1919px) {
+    .nav {
+        &__list {
+            gap: 1.75vw;
+        }
+
+        &__item {
+            padding-top: toRem(30.5);
+            padding-bottom: toRem(30.5);
+
+            @include gapFallback(1.75vw);
+        }
+
+        &__arr {
+            width: toRem(10);
+        }
+
+        &__inner {
+            top: 79px;
+            grid-template-columns: 28.5% 71.5%;
+        }
+
+        &__inner-list {
+            grid-row-gap: toRem(28);
+            padding: toRem(45) 15.13157894736842%;
+        }
+    }
+}
+
+@media screen and (max-width: 1599px) {
+    .nav {
+        &__list {
+            gap: 2.068965517241379vw;
+        }
+
+        &__item {
+            padding-top: toRem(31);
+            padding-bottom: toRem(31);
+
+            @include gapFallback(2.068965517241379vw);
+        }
+
+        &__inner {
+            top: 80px;
+            grid-template-columns: 30.78125% 69.21875%;
+        }
+
+        &__inner-list {
+            grid-row-gap: toRem(28);
+            padding: toRem(45) 9.644670050761421%;
+        }
+    }
+}
+
+@media screen and (max-width: 1449px) {
+    .nav {
+        &__list {
+            gap: 1vw;
+        }
+
+        &__item {
+            @include gapFallback(1.40625vw);
+        }
+
+        &__inner {
+            grid-template-columns: 28.5% 71.5%;
+        }
+
+        &__inner-list {
+            grid-row-gap: toRem(28);
+            padding: toRem(45) 15.13157894736842%;
+        }
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .nav {
+        width: toRem(452);
+        position: absolute;
+        top: toRem(79);
+        border-top: 1px solid #C4C4C4;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-shadow: 15px 10px 29px rgba(0, 0, 0, 0.15);
+        padding: toRem(30) toRem(32) toRem(97) toRem(20);
+        transform: scaleY(0);
+
+        background-color: #fff;
+
+        &.active {
+            transform: scaleY(1);
+
+            .nav__list {
+                animation: fadeInStatic 0s linear 0.2s;
+            }
+
+            .nav__menu {
+                animation: fadeInStatic 0s linear 0.4s;
+            }
+        }
+
+        &__list {
+            animation: fadeOutStatic 0s linear 0.2s;
+            order: 2;
+            width: auto;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: toRem(12);
+            margin-bottom: toRem(70);
+        }
+
+        &__link {
+            font-size: toRem(20);
+            line-height: toRem(24);
+        }
+
+        &__item {
+            padding: 0;
+            @include gapFallbackV(12px);
+
+            &--inner {
+                flex-wrap: wrap;
+
+                &.active {
+                    .nav__inner {
+                        max-height: 100%;
+                        transition: 0.4s $cubic;
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        &__inner {
+            position: relative;
+            width: 100%;
+            left: auto;
+            top: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: toRem(20);
+            box-shadow: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.4s $cubic;
+
+            &-list {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-wrap: nowrap;
+                border: none;
+                gap: toRem(12);
+            }
+
+            &-item {
+                @include gapFallbackV(12px);
+            }
+
+            &-link {
+                font-size: toRem(20);
+                line-height: toRem(22);
+            }
+        }
+
+        &__menu {
+            order: 3;
+            animation: fadeOutStatic 0s linear 0s;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .nav {
+        width: toRem(295);
+        top: toRem(69);
+        padding-left: toRem(10);
+        padding-right: 0;
+        padding-bottom: toRem(60);
+        margin-right: 0;
+        max-height: 78vh;
+        overflow-y: scroll;
+
+        &__list {
+            gap: toRem(7);
+            margin-bottom: toRem(60);
+        }
+
+        &__item {
+            @include gapFallbackV(7px);
+
+            &[open] {
+                .nav__label {
+                    margin-bottom: toRem(7);
+                }
+            }
+        }
+
+        &__inner {
+            &-list {
+                gap: toRem(10);
+            }
+
+            &-item {
+                @include gapFallbackV(10px);
+            }
+        }
+    }
+}

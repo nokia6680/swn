@@ -1,0 +1,73 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+    head
+        meta(charset="utf-8")
+        title #{title}
+        <!--[if IE]>
+        meta(http-equiv='X-UA-Compatible', content="IE = edge")
+        <![endif]-->
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        meta(name="keywords" content="")
+        link(rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css")
+        link(rel="stylesheet" type='text/css' href="static/css/styles.css")
+        link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png")
+        //test ver only
+        meta(name="robots" content="noindex")
+        //end of test ver only
+        link(rel="mask-icon" href="/favicon_32x32.svg" color="#5bbad5")
+        link(rel="icon" href="/favicon_32x32.svg" sizes="any" type="image/svg+xml") 
+        meta(name="theme-color" content="#ffffff")
+    body.body.body-index
+        include ../modules/header/header
+        
+        main.main
+            .intro-slider
+                .intro-slider__container
+                    .swiper-wrapper
+                        
+                        .intro-slider__item.swiper-slide
+                            
+                            // Top nav items in slider
+                            .intro-slider__nav
+                                a(href="#2" target="_self").intro-slider__nav-link фактура
+                                span.intro-slider__divider
+                                a(href="#3" target="_self").intro-slider__nav-link мнения
+                            a(href="#" target="_self").intro-slider__link
+                                picture.intro-slider__frame
+                                    source(srcset="static/images/content/intro-slider-1.webp" type="image/webp")
+                                    img(src="static/images/content/intro-slider-1.png" width="" height="" alt="").intro-slider__frame-image
+                                .intro-slider__info
+                                    h2.intro-slider__info-title Заголовок слайда
+                                    p.intro-slider__info-description Разбираемся, как производят и с чем подают великие сладкие вина Бордо.
+                        
+                        .intro-slider__item.swiper-slide
+                            picture.intro-slider__frame
+                                source(srcset="static/images/content/intro-slider-1.webp" type="image/webp")
+                                img(src="static/images/content/intro-slider-1.png" width="" height="" alt="").intro-slider__frame-image
+                        .intro-slider__item.swiper-slide
+                            picture.intro-slider__frame
+                                source(srcset="static/images/content/intro-slider-1.webp" type="image/webp")
+                                img(src="static/images/content/intro-slider-1.png" width="" height="" alt="").intro-slider__frame-image
+                        .intro-slider__item.swiper-slide
+                            picture.intro-slider__frame
+                                source(srcset="static/images/content/intro-slider-1.webp" type="image/webp")
+                                img(src="static/images/content/intro-slider-1.png" width="" height="" alt="").intro-slider__frame-image
+                        // содержимое
+                    .intro-slider__pagination.swiper-pagination
+                    .intro-slider__controls
+                        button(type="button").intro-slider__prev
+                        button(type="button").intro-slider__next
+            section.section
+            section.section
+            section.section
+        script(src="static/js/vendor/jquery-3.3.1.min.js")
+        script(src="https://unpkg.com/swiper@8/swiper-bundle.min.js")
+        script(src="static/js/slider.js")
+        script(src="static/js/details.js")
+        script(src="static/js/main.js")
+        block script

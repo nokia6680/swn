@@ -1,0 +1,199 @@
+-var tagListF = [{name:'Вино', link: ''}, {name:'Шампанское Блан', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Коньяк', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское Блан', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Коньяк', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}]
+-var tagListS = [{name:'Вино', link: ''}, {name:'Шампанское Блан', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Коньяк', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Коньяк', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}]
+-var tagListT = [{name:'Коньяк', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}, {name:'Вино', link: ''}, {name:'Коньяк', link: ''}, {name:'Вино', link: ''}, {name:'Шампанское', link: ''}]
+
+header.header
+    .header_wrap
+        <!--Menu toggle-->
+        button(type="button").header__toggle
+        <!--Logo-->
+        .header__logo
+            a(href="#" target="_self").header__logo-link
+                picture
+                    source(media="(min-width: 1280px)" srcset="static/images/content/logo-dt.svg")
+                    img(src="static/images/content/logo.svg" width="" height="" alt="SWN").header__logo-img
+        nav.header__nav.nav
+            <!--Menu links navi-->
+            .nav__list
+                .nav__item
+                    a(href="#" target="_self").nav__link новости
+                <!--element with dropdown-->
+                .nav__item.nav__item--inner
+                    a(href="#" target="_self").nav__link вино
+                    span.nav__arr
+                    .nav__inner
+                        ul.nav__inner-list
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link регионы
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link хозяйства
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link сорта
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link рейтинги
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link основы
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link разное
+                            li.nav__inner-item.long
+                                a(href="" target="_self").nav__inner-link большое русское вино
+                                
+                        .nav__inner-materials.inner-materials
+                            h3.inner-materials__title Статьи недели
+                            ul.inner-materials__list
+                                li.inner-materials__item
+                                    .inner-materials__nav
+                                        a(href="#2" target="_self").inner-materials__nav-link фактура
+                                        span.inner-materials__divider
+                                        a(href="#3" target="_self").inner-materials__nav-link Большое русское вино
+                                    a(href="" target="_self").inner-materials__link
+                                        picture.inner-materials__frame
+                                            source(srcset="static/images/content/inner-1.webp" type="image/webp")
+                                            img(src="static/images/content/inner-1.jpg" width="" height="" alt="").inner-materials__frame-image
+                                        p.inner-materials__description Текст новости о чем-то там, а может быть
+                                li.inner-materials__item
+                                    .inner-materials__nav
+                                        a(href="#2" target="_self").inner-materials__nav-link фактура
+                                        span.inner-materials__divider
+                                        a(href="#3" target="_self").inner-materials__nav-link мнения
+                                    a(href="" target="_self").inner-materials__link
+                                        picture.inner-materials__frame
+                                            source(srcset="static/images/content/inner-2.webp" type="image/webp")
+                                            img(src="static/images/content/inner-2.jpg" width="" height="" alt="").inner-materials__frame-image
+                                        p.inner-materials__description Текст новости о чем-то там, а может быть и ни о чем совсем, на 4 строки максимум
+                                li.inner-materials__item
+                                    .inner-materials__nav
+                                        a(href="#2" target="_self").inner-materials__nav-link фактура
+                                        span.inner-materials__divider
+                                        a(href="#3" target="_self").inner-materials__nav-link мнения
+                                    a(href="" target="_self").inner-materials__link
+                                        picture.inner-materials__frame
+                                            source(srcset="static/images/content/inner-3.webp" type="image/webp")
+                                            img(src="static/images/content/inner-3.jpg" width="" height="" alt="").inner-materials__frame-image
+                                        p.inner-materials__description Текст новости о чем-то там, а может быть и ни о чем совсем, на 4 строки максимум
+                .nav__item
+                    a(href="#" target="_self").nav__link крепкое и не только
+                <!--element with dropdown-->
+                .nav__item.nav__item--inner
+                    a(href="#" target="_self").nav__link люди
+                    span.nav__arr
+                        
+                    .nav__inner
+                        ul.nav__inner-list
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link интервью
+                            li.nav__inner-item
+                                a(href="" target="_self").nav__inner-link мнения
+                        .nav__inner-materials.inner-materials
+                            h3.inner-materials__title Статьи недели
+                            
+                            ul.inner-materials__list
+                                
+                                li.inner-materials__item
+                                    .inner-materials__nav
+                                        a(href="#2" target="_self").inner-materials__nav-link фактура
+                                        span.inner-materials__divider
+                                        a(href="#3" target="_self").inner-materials__nav-link мнения
+                                    a(href="" target="_self").inner-materials__link
+                                        picture.inner-materials__frame
+                                            source(srcset="static/images/content/inner-1.webp" type="image/webp")
+                                            img(src="static/images/content/inner-1.jpg" width="" height="" alt="").inner-materials__frame-image
+                                        p.inner-materials__description а 4 строки максимум
+                                
+                                li.inner-materials__item
+                                    .inner-materials__nav
+                                        a(href="#2" target="_self").inner-materials__nav-link фактура
+                                        span.inner-materials__divider
+                                        a(href="#3" target="_self").inner-materials__nav-link мнения
+                                    a(href="" target="_self").inner-materials__link
+                                        picture.inner-materials__frame
+                                            source(srcset="static/images/content/inner-2.webp" type="image/webp")
+                                            img(src="static/images/content/inner-2.jpg" width="" height="" alt="").inner-materials__frame-image
+                                        p.inner-materials__description Текст новости о чем-то там, а может быть и ни о чем совсем, на 4 строки максимум
+                                li.inner-materials__item
+                                    .inner-materials__nav
+                                        a(href="#2" target="_self").inner-materials__nav-link фактура
+                                        span.inner-materials__divider
+                                        a(href="#3" target="_self").inner-materials__nav-link мнения
+                                    a(href="" target="_self").inner-materials__link
+                                        picture.inner-materials__frame
+                                            source(srcset="static/images/content/inner-3.webp" type="image/webp")
+                                            img(src="static/images/content/inner-3.jpg" width="" height="" alt="").inner-materials__frame-image
+                                        p.inner-materials__description Текст новости о чем-то там, а может быть и ни о чем совсем, на 4 строки максимум
+                
+                .nav__item
+                    a(href="#" target="_self").nav__link еда
+                .nav__item
+                    a(href="#" target="_self").nav__link туризм
+                .nav__item
+                    a(href="#" target="_self").nav__link события
+                .nav__item
+                    a(href="#" target="_self").nav__link глоссарий
+                .nav__item
+                    a(href="#" target="_self").nav__link развлечения
+                .nav__item
+                    a(href="#" target="_self").nav__link english digest
+                .nav__item
+                    a(href="#" target="_self").nav__link коктейли
+            
+            <!--Recent links-->
+            .nav__menu.menu
+                h3.menu__title Популярные темы недели
+                
+                .menu__wrap
+                    .menu__wrap-block
+                        b.menu__subtitle Заголовок 1
+                        ul.menu__list
+                            for i in tagListF
+                                li.menu__item
+                                    a(href="" +i.link target="_self").menu__link=i.name
+                    .menu__wrap-block
+                        b.menu__subtitle Заголовок 2
+                        ul.menu__list
+                            for i in tagListS
+                                li.menu__item
+                                    a(href="" +i.link target="_self").menu__link=i.name
+                    .menu__wrap-block
+                        b.menu__subtitle Заголовок 3
+                        ul.menu__list
+                            for i in tagListT
+                                li.menu__item
+                                    a(href="" +i.link target="_self").menu__link=i.name
+
+        <!--Menu search-->
+        button(type="button").header__loipe
+        .header__search.search
+            form(method="" action="").search__upper
+                input(type="search" name="search" id="search" placeholder="поиск").search__upper-input
+                button(type="submit").search__upper-submit
+                button(type="reset").search__upper-reset.visible
+            .search__result
+                ul.search__result-list
+                    li.search__result-item
+                        a(href="" target="_self").search__result-link
+                            picture.search__result-frame
+                                source(srcset="static/images/content/search-result-1.webp" type="image/webp")
+                                img(src="static/images/content/search-result-1.jpg" width="" height="" alt="").search__result-img
+                            span.search__result-text Текст ссылки найденной в поиске
+                    li.search__result-item
+                        a(href="" target="_self").search__result-link
+                            picture.search__result-frame
+                                source(srcset="static/images/content/search-result-1.webp" type="image/webp")
+                                img(src="static/images/content/search-result-1.jpg" width="" height="" alt="").search__result-img
+                            span.search__result-text Текст ссылки найденной в поиске
+                    li.search__result-item
+                        a(href="" target="_self").search__result-link
+                            picture.search__result-frame
+                                source(srcset="static/images/content/search-result-1.webp" type="image/webp")
+                                img(src="static/images/content/search-result-1.jpg" width="" height="" alt="").search__result-img
+                            span.search__result-text Текст ссылки найденной в поиске
+                a(href="#" target="_self").search__result-more Посмотреть все
+            .search__links
+                h3.search__links-title Популярные запросы
+                ul.search__links-list
+                    li.search__links-item
+                        a(href="#" target="_self").search__links-text Текст ссылки найденной в поиске
+                    li.search__links-item
+                        a(href="#" target="_self").search__links-text Текст ссылки найденной в поиске
+                    li.search__links-item
+                        a(href="#" target="_self").search__links-text Текст ссылки найденной в поиске
